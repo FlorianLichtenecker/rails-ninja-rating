@@ -1,1 +1,20 @@
-<h1>Hallo du Ollum!</h1>
+    <div class="dashboard">
+        <div class="sidebar">
+            <!-- Review Platform Cards -->
+            <% @review_platforms.each do |platform| %>
+              <%=   %>
+            <% end %>
+            <%# <div class="review-platform-card">
+                <i class="fab fa-google"></i>
+                <span>Google</span>
+            </div>
+            <div class="review-platform-card">
+                <i class="fab fa-facebook-f"></i>
+                <span>Facebook</span> %>
+            </div>
+            <!-- Add more review platform cards -->
+        </div>
+        <div class="content">
+            <!-- Content will go here -->
+        </div>
+    </div>
