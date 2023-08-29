@@ -1,0 +1,43 @@
+.footer {
+  margin-top: auto;
+  background-color: #f1f1f1;
+  padding: 0.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.footer-section {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-section p {
+margin: 0;
+}
+
+.footer-section ul {
+  margin: 0;
+  }
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons li {
+  display: inline;
+  margin: 0 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 0.5rem;
+}
