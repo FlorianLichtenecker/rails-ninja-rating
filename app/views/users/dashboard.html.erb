@@ -1,9 +1,12 @@
-    <div class="dashboard">
-        <div class="sidebar">
-            <!-- Review Platform Cards -->
-            <% @review_platforms.each do |platform| %>
-              <%=   %>
-            <% end %>
+<div class="dashboard">
+  <div class="sidebar">
+    <!-- Review Platform Cards -->
+      <div class="review-platform-card">
+        <% @review_platforms.each do |platform| %>
+          <%= platform.logo_url %>
+          <%= <span>platform.name</span> %>
+        <% end %>
+      </div>
             <%# <div class="review-platform-card">
                 <i class="fab fa-google"></i>
                 <span>Google</span>
@@ -11,7 +14,7 @@
             <div class="review-platform-card">
                 <i class="fab fa-facebook-f"></i>
                 <span>Facebook</span> %>
-            </div>
+            <%# </div> %>
             <!-- Add more review platform cards -->
         </div>
         <div class="content">

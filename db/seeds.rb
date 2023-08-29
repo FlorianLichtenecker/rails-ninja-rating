@@ -4,7 +4,7 @@ ReviewPlatform.destroy_all # Corrected here
 
 ReviewPlatform.create!(
   name: "google",
-  logo_url: "https://static-00.iconduck.com/assets.00/google-logo-icon-503x512-d3y72ufg.png"
+  logo_url: '<i class="fa-brands fa-google"></i>'
 )
 
 20.times do
