@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# Clear existing reviews if you want to start fresh each time you seed
+Review.destroy_all
+ReviewPlatform.destroy_all # Corrected here
+
+ReviewPlatform.create!(
+  name: "google"
+)
+
+20.times do
+  Review.create!(
+    reviewer_name: Faker::Name.name,
+    review_platform: ReviewPlatform.last, # Corrected here
+    rating: rand(1..5),
+    content: Faker::Restaurant.review,
+    date: Faker::Date.backward(days: 14),
+    status: "open"
+  )
+end
+
+puts "20 fake reviews have been generated."
