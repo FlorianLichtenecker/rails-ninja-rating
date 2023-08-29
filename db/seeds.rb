@@ -4,7 +4,7 @@ ReviewPlatform.destroy_all # Corrected here
 
 ReviewPlatform.create!(
   name: "google",
-  logo_url: '<i class="fa-brands fa-google"></i>'
+  logo_url: "fa-brands fa-google"
 )
 
 puts "Review platform havs been generated."
@@ -29,7 +29,7 @@ User.create!(
 
 puts "User has been generated."
 
-Review.all.each do |review|
+Review.all.each do
   UserReviewPlatform.create!(
     user: User.last,
     review_platform: ReviewPlatform.last

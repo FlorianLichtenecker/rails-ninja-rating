@@ -4,7 +4,7 @@
       <div class="review-platform-card">
         <% @review_platforms.each do |platform| %>
           <%= platform.logo_url %>
-          <%= <span>platform.name</span> %>
+          <span><%= platform.name.capitalize %></span>
         <% end %>
       </div>
             <%# <div class="review-platform-card">
