@@ -1,0 +1,5 @@
+<h1>Manage Reviews</h1>
+<div>
+    <%= render 'review', review: @current_review %>
+  <%= button_to 'Next Review', next_review_path, remote: true, method: :get, id: 'next-review-button' %>
+</div>

@@ -1,0 +1,48 @@
+.review-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 70%;
+  margin: auto;
+}
+
+.review-details {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.review-content {
+  margin-top: 10px;
+}
+
+#round-picture {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.name-rating {
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0;
+  }
+}
+
+.rating-stars {
+  display: inline-block;
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+.rating-stars .fas {
+  color: orange; /* Color for filled stars */
+}
+
+.rating-stars .far {
+  color: transparent; /* Transparent color for empty stars */
+}
