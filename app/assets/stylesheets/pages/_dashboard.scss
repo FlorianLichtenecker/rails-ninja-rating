@@ -1,0 +1,19 @@
+.dashboard {
+  display: flex;
+}
+
+.dashboard .sidebar {
+  flex: 1;
+  min-width: 15%;
+  max-width: 20%;
+  background-color: #f1f1f1;
+  padding: 1rem;
+}
+
+.dashboard .content {
+  flex: 4;
+  min-width: 75%;
+  max-width: 80%;
+  background-color: #e9ecef;
+  padding: 1rem;
+}
