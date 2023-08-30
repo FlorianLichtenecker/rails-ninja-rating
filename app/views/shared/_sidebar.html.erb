@@ -1,13 +1,13 @@
-  <div class="sidebar">
-    <div class="review-platform-card  overview-card">
-        <span>Overview</span>
-    </div>
-    <hr class="separator"> <!-- Horizontal line separator -->
-    <!-- Review Platform Cards -->
-    <div class="review-platform-card">
-      <% @review_platforms.each do |platform| %>
-        <i class="<%= platform.logo_url %>"></i>
-        <span><%= platform.name.capitalize %></span>
-      <% end %>
-    </div>
+<div class="sidebar">
+  <div class="review-platform-card  overview-card">
+      <span>Overview</span>
   </div>
+  <hr class="separator"> <!-- Horizontal line separator -->
+  <!-- Review Platform Cards -->
+  <div class="review-platform-card">
+    <% @review_platforms.each do |platform| %>
+      <i class="<%= platform.logo_url %>"></i>
+      <span><%= platform.name.capitalize %></span>
+    <% end %>
+  </div>
+</div>
