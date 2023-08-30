@@ -1,6 +1,8 @@
 # Clear existing reviews if you want to start fresh each time you seed
 Review.destroy_all
-ReviewPlatform.destroy_all # Corrected here
+UserReviewPlatform.destroy_all
+ReviewPlatform.destroy_all
+User.destroy_all
 
 ReviewPlatform.create!(
   name: "google",
@@ -29,11 +31,9 @@ User.create!(
 
 puts "User has been generated."
 
-Review.all.each do
-  UserReviewPlatform.create!(
-    user: User.last,
-    review_platform: ReviewPlatform.last
-  )
-end
+UserReviewPlatform.create!(
+  user: User.last,
+  review_platform: ReviewPlatform.last
+)
 
 puts "Associations have been generated."

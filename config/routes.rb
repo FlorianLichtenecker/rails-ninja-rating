@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "review_platforms#dashboard"
+  root to: "pages#home"
+  get "dashboard", to: "review_platforms#dashboard"
 end
