@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-  belongs_to :review_platform
+  belongs_to :user_review_platform
 end

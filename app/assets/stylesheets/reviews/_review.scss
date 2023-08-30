@@ -6,7 +6,30 @@
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 70%;
+  margin: 15px auto;
+}
+
+.reply-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 70%;
+  margin: 15px auto;
+}
+
+.reply-input {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .review-details {
@@ -17,6 +40,10 @@
 
 .review-content {
   margin-top: 10px;
+  p {
+    margin: 0px;
+  }
+
 }
 
 #round-picture {
@@ -36,7 +63,7 @@
 
 .rating-stars {
   display: inline-block;
-  font-size: 20px; /* Adjust the font size as needed */
+  font-size: 15px; /* Adjust the font size as needed */
 }
 
 .rating-stars .fas {
@@ -45,4 +72,75 @@
 
 .rating-stars .far {
   color: transparent; /* Transparent color for empty stars */
+}
+
+.title-container {
+  max-width: 70%;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.categories-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 70%;
+  height: 100px;
+  margin: 15px auto;
+}
+
+.category-button {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #0A77FF;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.dispute-button {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #0A77FF;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  width: 200px;
+}
+.reply-button {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #0A77FF;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  width: 200px;
+}
+
+.buttons-container {
+  padding: 10px;
+  margin-bottom: 15px;
+  max-width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+#next-review-button {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #0A77FF;
+  color: white;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
