@@ -1,0 +1,57 @@
+/* General formatting */
+.sidebar {
+  flex: 1;
+  min-width: 15%;
+  max-width: 20%;
+  background-color: #f1f1f1;
+  padding: 1rem;
+}
+
+.sidebar .separator {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+/* Each individual card */
+.review-platform-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.review-platform-card:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+.review-platform-card:active,
+.review-platform-card:focus {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.review-platform-card i {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.review-platform-card span {
+  font-size: 1rem;
+}
+
+/* Overview Card */
+.overview-card {
+  font-weight: bold;
+}
+
+.overview-card span {
+font-size: 24px;
+}

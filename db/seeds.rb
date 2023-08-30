@@ -33,3 +33,17 @@ puts "Associations have been generated."
   )
 end
 puts "20 fake reviews have been generated."
+
+User.create!(
+  email: "123@123.com",
+  password: "123123"
+)
+
+puts "User has been generated."
+
+UserReviewPlatform.create!(
+  user: User.last,
+  review_platform: ReviewPlatform.last
+)
+
+puts "Associations have been generated."
