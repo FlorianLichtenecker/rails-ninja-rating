@@ -1,9 +1,9 @@
-.dashboard {
+.page_layout {
   display: flex;
   min-height: 100vh;
 }
 
-.dashboard .content {
+.page_layout .content {
   flex: 4;
   min-width: 75%;
   max-width: 80%;
