@@ -31,8 +31,7 @@
   transform: scale(1.05);
 }
 
-.review-platform-card:active,
-.review-platform-card:focus {
+.review-platform-card.selected {
   outline: none;
   border: 1px solid #ccc;
   background-color: white;

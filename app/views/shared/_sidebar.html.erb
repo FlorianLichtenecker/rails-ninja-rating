@@ -1,11 +1,15 @@
-<div class="sidebar">
-  <div class="review-platform-card  overview-card">
+<div class="sidebar" data-controller="sidebar">
+  <div class="review-platform-card overview-card"
+       data-sidebar-target="card"
+       data-action="click->sidebar#highlight">
       <span>Overview</span>
   </div>
   <hr class="separator"> <!-- Horizontal line separator -->
   <!-- Review Platform Cards -->
   <% if current_user %>
-    <div class="review-platform-card">
+    <div class="review-platform-card"
+         data-sidebar-target="card"
+         data-action="click->sidebar#highlight">
       <% current_user.review_platforms.each do |platform| %>
         <i class="<%= platform.logo_url %>"></i>
         <span><%= platform.name.capitalize %></span>
