@@ -1,1 +1,68 @@
-Hallo <% current_user.email %>
+<div class="container">
+  <div class="row my-4">
+    <div class="col-3">
+      <div class="kpi-box">
+        <i class="fa-solid fa-hashtag"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Ratings (Count)</h2>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="kpi-box">
+        <i class="fas fa-chart-line kpi-icon"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Number of ratings per day over certain period</h2>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="kpi-box">
+        <i class="fa-solid fa-hashtag"></i><!-- Font Awesome icon -->
+        <h2 class="kpi-header">Ratings (Count)</h2>
+        <h4 class="kpi-subtitle">(Past 14 days)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-4">
+      <div class="kpi-box">
+        <i class="fas fa-chart-line kpi-icon"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Top 3 Negative categories: average rating per category</h2>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="kpi-box">
+        <i class="fas fa-chart-line kpi-icon"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Frequency of 1-5 stars diagram</h2>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="kpi-box">
+        <i class="fas fa-chart-line kpi-icon"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Top 3 Positive categories: average rating per category</h2>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <span class="kpi-value"><%= @ratings_total %></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="review-box">
+        <h2>Newest 1 star review</h2>
+        <p>Content</p>
+     </div>
+    </div>
+    <div class="col-6">
+      <div class="review-box">
+        <h2>Newest 5 star review</h2>
+        <p>Content</p>
+     </div>
+    </div>
+  </div>
+</div>
