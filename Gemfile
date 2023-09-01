@@ -80,6 +80,16 @@ end
 
 gem "faker"
 
+
 gem 'chartkick'
 
 gem 'groupdate'
+
+gem "select2-rails"
+
+# Use jquery as the JavaScript librar
+gem 'jquery-rails'
+
+# Use jquery-ui for pretty UI
+gem 'jquery-ui-rails'
+

@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reports
   has_many :user_review_platforms
+  has_many :reviews, through: :user_review_platforms
   has_many :review_platforms, through: :user_review_platforms
 end
