@@ -4,7 +4,9 @@ class ReviewPlatformsController < ApplicationController
   end
 
   def show
-    reviews_for_platform = Review.where(review_platform_id: params[:id])
+    @review_platform = ReviewPlatform.find(params[:id])
+    user_review_platform = UserReviewPlatform.where(review_platform: @review_platform)
+    reviews_for_platform = Review.where(user_review_platform: user_review_platform)
     gather_statistics(reviews_for_platform)
   end
 
