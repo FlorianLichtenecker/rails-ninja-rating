@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "users#dashboard"
+  get 'reviews/manage', to: 'reviews#manage'
+  get 'reviews/next_review', to: 'reviews#next_review'
   get "dashboard", to: "review_platforms#dashboard"
+  resources :reviews, only: [] do
+    resources :review_categories, only: [:create]
+  end
 end

@@ -1,0 +1,12 @@
+<div>
+  <div class="title-container">
+    <h5 class="manage-title">
+      <%= session[:processed_reviews_count] %> /
+      <%= session[:outstanding_reviews_count] %> reviews managed
+    </h5>
+    <%= link_to 'Next Review', reviews_next_review_path, id: 'next-review-button' %>
+  </div>
+  <div>
+    <%= render 'review', review: @current_review %>
+  </div>
+</div>

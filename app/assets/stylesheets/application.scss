@@ -6,10 +6,13 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import "jquery-ui.css";
+// @import "select2";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "reviews/review";
 
 body {
   display: flex;
