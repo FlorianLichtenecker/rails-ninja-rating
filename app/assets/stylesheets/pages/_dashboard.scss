@@ -1,11 +1,120 @@
 .kpi-box, .review-box {
+  background-color: #f1f1f1;
   padding: 20px;
+  padding-left: 35px;
   border: 1px solid #ccc;
   border-radius: 10px;
   height: 200px;
   margin: 5px; /* Add some margin around each box */
 }
 
-.kpi-box h2{
-  font-size: 28px;
+.icon-title {
+  display: flex;
+}
+
+.kpi-box i {
+  font-size: 20px;
+}
+
+.kpi-header {
+  font-size: 20px;
+  margin-left: 6px;
+  margin-bottom: 0px;
+}
+
+.kpi-subtitle {
+  font-size: 16px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.kpi-value {
+  font-size: 80px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: black;
+  font-weight: 600;
+}
+
+.kpi-value > div {
+  margin-top: 22px;
+  height: 100px !important;
+}
+
+.kpi-container {
+  margin-top: 17px;
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.kpi-category-icons {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-category-names {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.kpi-category-values {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-category-icons  i {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.kpi-category-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.kpi-category-value {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.review-box-header {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-box-content {
+  height: 120px;
+  overflow: hidden;   /* Hides the overflow */
+  text-overflow: ellipsis; /* Adds the ellipsis */
+}
+
+.review-box-header h2 {
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-right: 50px;
+}
+
+.review-box-header img {
+  width: 60px;
+  height: 15px;
+}
+
+.review-box p {
+  margin-top: 25px;
+  font-size: 20;
+  font-style: italic;
+}
+
+.five-star-icon {
+  display: flex;
+}
+
+.five-star-icon i {
+  font-size: 16px;
 }

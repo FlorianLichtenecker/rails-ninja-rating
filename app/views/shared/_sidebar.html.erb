@@ -1,19 +1,25 @@
 <div class="sidebar" data-controller="sidebar">
-  <div class="review-platform-card overview-card"
-       data-sidebar-target="card"
-       data-action="click->sidebar#highlight">
+  <%= link_to dashboard_path, class: "sidebar-link" do %>
+    <div class="review-platform-card overview-card"
+      <%# data-sidebar-target="card" %>
+      <%# data-action="click->sidebar#highlight" %>
+    >
       <span>Overview</span>
-  </div>
+    </div>
+  <% end %>
   <hr class="separator"> <!-- Horizontal line separator -->
   <!-- Review Platform Cards -->
   <% if current_user %>
-    <div class="review-platform-card"
-         data-sidebar-target="card"
-         data-action="click->sidebar#highlight">
-      <% current_user.review_platforms.each do |platform| %>
-        <i class="<%= platform.logo_url %>"></i>
-        <span><%= platform.name.capitalize %></span>
+    <% current_user.review_platforms.each do |platform| %>
+      <%= link_to review_platform_path(platform),class: "sidebar-link" do %>
+        <div class="review-platform-card"
+             <%# data-sidebar-target="card" %>
+             <%# data-action="click->sidebar#highlight" %>
+        >
+          <i class="<%= platform.logo_url %>"></i>
+          <span><%= platform.name.capitalize %></span>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   <% end %>
 </div>
