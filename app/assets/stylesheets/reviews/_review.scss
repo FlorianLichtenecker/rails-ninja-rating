@@ -83,6 +83,10 @@
   align-items: center;
   justify-content: space-between;
 
+  h5 {
+    margin-bottom: 0px;
+    align-self: flex-end;
+  }
 }
 .categories-card {
   border: 1px solid #ddd;
@@ -92,7 +96,6 @@
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 70%;
-  height: 100px;
   margin: 15px auto;
 }
 
@@ -115,6 +118,8 @@
   padding-bottom: 5px;
   color: white;
   width: 200px;
+  text-decoration: none;
+  margin-right: 20px;
 }
 .reply-button {
   border-radius: 15px;
@@ -125,6 +130,8 @@
   padding-bottom: 5px;
   color: white;
   width: 200px;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
 .buttons-container {
@@ -133,6 +140,9 @@
   max-width: 70%;
   margin: auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+
 }
 
 #next-review-button {
@@ -143,4 +153,53 @@
   padding: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  text-decoration: none;
+}
+
+
+.select2-enable {
+  width: 100%;
+}
+
+.categories-button {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #0A77FF;
+  color: white;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.select2-selection {
+  margin-bottom: 20px;
+
+}
+
+.categories {
+  margin-bottom: 20px;
+}
+
+.selected-categories {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #00b53c;
+  color: white;
+  text-decoration: none;
+}
+
+.current-categories-container {
+  display: flex;
+  width: 100%;
+}
+
+.category-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.category-list {
+  list-style-type: none;
+  padding: 0;
 }

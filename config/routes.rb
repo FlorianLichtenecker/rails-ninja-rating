@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "users#dashboard"
   get 'reviews/manage', to: 'reviews#manage'
   get 'reviews/next_review', to: 'reviews#next_review'
-  root to: "pages#home"
   get "dashboard", to: "review_platforms#dashboard"
+  resources :reviews, only: [] do
+    resources :review_categories, only: [:create]
+  end
 end

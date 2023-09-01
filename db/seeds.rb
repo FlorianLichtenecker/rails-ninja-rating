@@ -2,48 +2,74 @@
 Review.destroy_all
 UserReviewPlatform.destroy_all
 ReviewPlatform.destroy_all
+ReviewCategory.destroy_all
 User.destroy_all
+Category.destroy_all
+
 
 User.create!(
-  email: "123@123.com",
+  email: "mateo.florian@gmail.com",
   password: "123123"
 )
 puts "User has been generated."
 
-ReviewPlatform.create!(
-  name: "google",
-  logo_url: "fa-brands fa-google"
-)
+platform_list = ["google", "yelp"]
+
+platform_list.each do |name|
+  ReviewPlatform.create!(
+    name: name,
+    logo_url: "fa-brands fa-#{name}"
+  )
+end
+
 puts "Review platform havs been generated."
 
-UserReviewPlatform.create!(
-  user: User.last,
-  review_platform: ReviewPlatform.last
-)
+ReviewPlatform.all.each do |platform|
+  UserReviewPlatform.create!(
+    user: User.last,
+    review_platform: platform
+  )
+end
 
 puts "Associations have been generated."
+
+
+categories_list = ["Price", "Menu Variety", "Food Quality", "Service", "Atmosphere", "Hygiene", "Wait Time", "Ambience", "Location", "Noise Level"]
+
+categories_list.each do |name|
+  Category.create!(name: name)
+end
+
 20.times do
   Review.create!(
     reviewer_name: Faker::Name.name,
     user_review_platform: UserReviewPlatform.last, # Corrected here
     rating: rand(1..5),
     content: Faker::Restaurant.review,
-    date: Faker::Date.backward(days: 14),
+    date: Faker::Date.backward(days: rand(0..7)),
     status: "open"
   )
 end
 puts "20 fake reviews have been generated."
 
-User.create!(
-  email: "123@123.com",
-  password: "123123"
-)
-
-puts "User has been generated."
-
-UserReviewPlatform.create!(
-  user: User.last,
-  review_platform: ReviewPlatform.last
-)
-
-puts "Associations have been generated."
+80.times do
+  Review.create!(
+    reviewer_name: Faker::Name.name,
+    user_review_platform: UserReviewPlatform.all.sample,
+    rating: rand(1..5),
+    content: Faker::Restaurant.review,
+    date: Faker::Date.backward(days: rand(8..30)),
+    status: "closed"
+  )
+  rand(1..3).times do
+    category = Category.all.sample
+    until category != ReviewCategory.last&.category
+      category = Category.all.sample
+    end
+    ReviewCategory.create!(
+      review: Review.last,
+      category: category
+    )
+  end
+end
+puts "80 fake closed reviews with categories have been generated."

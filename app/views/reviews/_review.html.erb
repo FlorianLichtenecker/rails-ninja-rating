@@ -21,16 +21,25 @@
 
 <div class="categories-card">
   <div class="categories">
-    <button class="category-button">
-      <i class="fa fa-plus"></i> Add Main Category
-    </button>
-    <button class="category-button">
-      <i class="fa fa-plus"></i> Add Secondary Categories
-    </button>
+    <%= simple_form_for [@current_review, ReviewCategory.new], url: review_review_categories_path(@current_review), method: :post do |f| %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: "select2-enable", multiple: "multiple", data: { controller: "category-dropdown" } %>
+      <%= f.button :submit, "Save Categories", class: "categories-button" %>
+    <% end %>
   </div>
+    <div>
+      <h5>Current Categories</h5>
+        <div class="current-categories-container">
+          <ul class="category-list">
+              <% @current_review.categories.each do |category| %>
+                <li class="category-item"><button class="selected-categories"><%= category.name %></button></li>
+              <% end %>
+          </ul>
+        </div>
+    </div>
 </div>
 
 <div class="buttons-container">
-  <button class="dispute-button">Open Dispute</button>
-  <button class="reply-button">Send Reply</button>
+  <a href="https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VJQ0FnSUR4OGYtNXZBRRAB&entityid=ChdDSUhNMG9nS0VJQ0FnSUR4OGYtNXZBRRIsChZDSUhNMG9nS0VJQ0FnSUR4OGYtNWZBEhJDZ3NJXzlPU3BBWVF5SUR0VmcaLQoXQ0lITTBvZ0tFSUNBZ0lEeDhmLTVfQUUSEkNnc0lfOU9TcEFZUXlJRHRWZyISCaF1eq_8oqQSEXepQn3549x7KhNDZ3dJczl1U3BBWVFxTGV6dXdN&wv=1&d=286732336" class="dispute-button" target="_blank">Open Dispute</a>
+  <%= link_to 'Send Reply', reviews_next_review_path, class: "reply-button" %>
+  <%# <button class="reply-button">Send Reply</button> %>
 </div>
