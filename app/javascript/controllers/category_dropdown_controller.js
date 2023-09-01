@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import "select2"
-import "jquery"
+
 // Connects to data-controller="category-dropdown"
 export default class extends Controller {
   connect() {
