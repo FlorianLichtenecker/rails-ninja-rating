@@ -9,19 +9,19 @@
   <% end %>
   <hr class="separator"> <!-- Horizontal line separator -->
   <!-- Review Platform Cards -->
-      <% if current_user %>
-        <% current_user.review_platforms.each do |platform| %>
-          <%= link_to review_platform_path(platform),class: "sidebar-link" do %>
-            <div class="review-platform-card"
-                <%# data-sidebar-target="card" %>
-                <%# data-action="click->sidebar#highlight" %>
-            >
-              <i class="<%= platform.logo_url %>"></i>
-              <span><%= platform.name.capitalize %></span>
-            </div>
-          <% end %>
-        <% end %>
+  <% if current_user %>
+    <% current_user.review_platforms.each do |platform| %>
+      <%= link_to review_platform_path(platform),class: "sidebar-link" do %>
+        <div class="review-platform-card"
+             <%# data-sidebar-target="card" %>
+             <%# data-action="click->sidebar#highlight" %>
+        >
+          <i class="<%= platform.logo_url %>"></i>
+          <span><%= platform.name.capitalize %></span>
+        </div>
       <% end %>
+    <% end %>
+  <% end %>
   <hr class="separator">
     <div>
         <div class="review-platform-card">
