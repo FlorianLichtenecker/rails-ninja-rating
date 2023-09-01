@@ -1,6 +1,6 @@
 <div class="sidebar" data-controller="sidebar">
   <%= link_to dashboard_path, class: "sidebar-link" do %>
-    <div class="review-platform-card overview-card"
+    <div class="review-platform-card <%= 'selected' if controller_name == 'review_platforms' && action_name == 'dashboard' %> overview-card"
       <%# data-sidebar-target="card" %>
       <%# data-action="click->sidebar#highlight" %>
     >
@@ -11,8 +11,8 @@
   <!-- Review Platform Cards -->
   <% if current_user %>
     <% current_user.review_platforms.each do |platform| %>
-      <%= link_to review_platform_path(platform),class: "sidebar-link" do %>
-        <div class="review-platform-card"
+      <%= link_to review_platform_path(platform),class: "sidebar-link " do %>
+        <div class="review-platform-card <%= 'selected' if @review_platform == platform %>"
              <%# data-sidebar-target="card" %>
              <%# data-action="click->sidebar#highlight" %>
         >
@@ -24,8 +24,8 @@
   <% end %>
   <hr class="separator">
     <div>
-        <div class="review-platform-card">
-          <%= link_to 'Manage Reviews', reviews_manage_path ,class: "sidebar-link" %>
-        </div>
+      <div class="review-platform-card">
+        <%= link_to 'Manage Reviews', reviews_manage_path, class: "sidebar-link", style: "font-style: italic;" %>
+      </div>
     </div>
 </div>
