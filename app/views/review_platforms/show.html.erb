@@ -17,7 +17,7 @@
           <h2 class="kpi-header"># of ratings per day in time period</h2>
         </div>
         <h4 class="kpi-subtitle">(Total)</h4>
-        <div class="kpi-value overview-chart"><%= line_chart Review.group_by_day(:created_at).count %></div>
+        <div class="kpi-value overview-chart"><%= line_chart Review.where(id: params[:id]).group_by_day(:created_at).count %></div>
       </div>
     </div>
     <div class="col-3">
