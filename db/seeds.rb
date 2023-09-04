@@ -33,11 +33,21 @@ end
 
 puts "Associations have been generated."
 
+categories_list = [
+  { name: "Price", logo_url: "fas fa-dollar-sign" },
+  { name: "Menu Variety", logo_url: "fas fa-utensils" },
+  { name: "Food Quality", logo_url: "fas fa-bread-slice" },
+  { name: "Service", logo_url: "fas fa-concierge-bell" },
+  { name: "Atmosphere", logo_url: "fa-solid fa-couch" },
+  { name: "Hygiene", logo_url: "fas fa-hand-sparkles" },
+  { name: "Wait Time", logo_url: "fas fa-clock" },
+  { name: "Ambience", logo_url: "fas fa-spa" },
+  { name: "Location", logo_url: "fas fa-map-marker-alt" },
+  { name: "Noise Level", logo_url: "fas fa-volume-up" }
+]
 
-categories_list = ["Price", "Menu Variety", "Food Quality", "Service", "Atmosphere", "Hygiene", "Wait Time", "Ambience", "Location", "Noise Level"]
-
-categories_list.each do |name|
-  Category.create!(name: name)
+categories_list.each do |category|
+  Category.create!(name: category[:name], logo_url: category[:logo_url])
 end
 
 20.times do
