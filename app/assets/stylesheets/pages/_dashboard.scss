@@ -1,11 +1,12 @@
 .kpi-box, .review-box {
   background-color: #f1f1f1;
   padding: 20px;
-  padding-left: 35px;
   border: 1px solid #ccc;
   border-radius: 10px;
   height: 200px;
   margin: 5px; /* Add some margin around each box */
+  display: flex;
+  flex-direction: column;
 }
 
 .icon-title {
@@ -44,23 +45,26 @@
 .kpi-container {
   margin-top: 17px;
   margin-bottom: 12px;
+  width: 95%;
   display: flex;
+  justify-content: space-between;
 }
 
 .kpi-category-icons {
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0px;
 }
 
 .kpi-category-names {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin: 0px;
 }
 
 .kpi-category-values {
-  margin-left: 25px;
   display: flex;
   flex-direction: column;
 }
