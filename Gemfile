@@ -90,3 +90,5 @@ gem "select2-rails"
 # Use jquery as the JavaScript librar
 
 # Use jquery-ui for pretty UI
+
+gem 'nokogiri'
