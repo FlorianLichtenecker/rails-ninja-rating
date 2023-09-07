@@ -1,0 +1,154 @@
+<h2>Reviews Report</h2>
+
+  <div class="kpi-containers">
+    <div class="kpi-box">
+      <div class="icon-title">
+        <i class="fa-solid fa-hashtag"></i>
+        <h2 class="kpi-header">Ratings</h2>
+      </div>
+        <h4 class="kpi-subtitle">(Past 7 days)</h4>
+        <p class="kpi-value"><%= @ratings_total %></p>
+    </div>
+    <div class="kpi-box">
+      <div class="icon-title">
+        <i class="fas fa-chart-line kpi-icon"></i>
+        <h2 class="kpi-header"># of ratings per day in time period</h2>
+      </div>
+        <h4 class="kpi-subtitle">(Total)</h4>
+        <div class="kpi-value overview-chart"><%= line_chart Review.group_by_day(:date).count %></div>
+    </div>
+    <div class="kpi-box">
+      <div class="icon-title">
+        <i class="fa-solid fa-down-long"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Negative Categories</h2>
+      </div>
+        <h4 class="kpi-subtitle">(#reviews)</h4>
+      <div class="kpi-container">
+        <div class="kpi-category-icons">
+          <i class="fa-solid fa-down-long"></i>
+          <i class="fa-solid fa-down-long"></i>
+          <i class="fa-solid fa-down-long"></i>
+        </div>
+        <div class="kpi-category-names">
+          <span class="kpi-category-name">Hygiene</span>
+          <span class="kpi-category-name">Service</span>
+          <span class="kpi-category-name">Ambience</span>
+        </div>
+        <div class="kpi-category-values">
+          <span class="kpi-category-value">300</span>
+          <span class="kpi-category-value">200</span>
+          <span class="kpi-category-value">100</span>
+        </div>
+      </div>
+    </div>
+    <div class="kpi-box">
+      <div class="icon-title">
+        <i class="fa-solid fa-up-long"></i> <!-- Font Awesome icon -->
+        <h2 class="kpi-header">Positive Categories</h2>
+      </div>
+        <h4 class="kpi-subtitle">(#reviews)</h4>
+      <div class="kpi-container">
+        <div class="kpi-category-icons">
+          <i class="fa-solid fa-down-long"></i>
+          <i class="fa-solid fa-down-long"></i>
+          <i class="fa-solid fa-down-long"></i>
+        </div>
+        <div class="kpi-category-names">
+          <span class="kpi-category-name">Hygiene</span>
+          <span class="kpi-category-name">Service</span>
+          <span class="kpi-category-name">Ambience</span>
+        </div>
+        <div class="kpi-category-values">
+          <span class="kpi-category-value">300</span>
+          <span class="kpi-category-value">200</span>
+          <span class="kpi-category-value">100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <div class="example-reviews-container">
+  <% if @report.reviews.count < 2 %>
+    <!-- Button trigger modal -->
+    <button type="button" class="add-review-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Add example review
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add an example review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-dialog modal-dialog-scrollable">
+          <!-- Content -->
+            <% @reviews.each_with_index do |review, index| %>
+              <div class="review-card">
+                <div class="review-details">
+                  <img src="https://source.unsplash.com/random/<%= index + 1 %>" alt="profile_picture" id="round-picture">
+                  <div class="name-rating">
+                    <p><strong></strong> <%= review.reviewer_name %></p>
+                    <div class="rating-stars">
+                      <%= render_stars(review.rating) %>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-content">
+                  <p><%= review.content %></p>
+                </div>
+                <div class="transparent-card">
+                  <%= button_to "Add",  report_report_reviews_path(@report, review_id: review.id), class: "button-add" %>
+                </div>
+                </div>
+            <% end %>
+          <!-- Content -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+    <% @report.reviews.each_with_index do |review, index| %>
+      <div class="review-card">
+        <div class="review-details">
+          <img src="https://source.unsplash.com/random/<%= index + 1 %>" alt="profile_picture" id="round-picture">
+          <div class="name-rating">
+            <p><strong></strong> <%= review.reviewer_name %></p>
+            <div class="rating-stars">
+              <%= render_stars(review.rating) %>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p><%= review.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="action-items-list-container" data-controller="action-item">
+    <h5>Action Items</h5>
+    <% if @action_items.count < 10 %>
+      <button data-action="click->action-item#display" class="categories-button">Add Action Items</button>
+    <% end %>
+      <div class="action-items d-none" data-action-item-target="form">
+        <%= simple_form_for [@report, @action_item] do |f| %>
+          <%= f.input :content, as: :text, label: false %>
+          <%= f.button :submit, "Save", class: "categories-button" %>
+        <% end %>
+      </div>
+    <ul class="action-items-list">
+      <% @action_items.each do |item| %>
+        <li>
+        <%= item.content %>
+      </li>
+      <% end %>
+    </ul>
+  </div>

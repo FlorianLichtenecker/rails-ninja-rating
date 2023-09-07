@@ -93,3 +93,12 @@ gem 'jquery-rails'
 # Use jquery-ui for pretty UI
 gem 'jquery-ui-rails'
 
+gem 'wicked_pdf'
+
+group :production do
+  gem 'wkhtmltopdf-heroku', '2.12.6.1.pre.jammy'
+end
+
+group :development do
+  gem 'wkhtmltopdf-binary'
+end

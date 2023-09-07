@@ -1,20 +1,3 @@
-# class ReviewCategoriesController < ApplicationController
-
-#   def create
-#     @review = Review.find(params)[review_id]
-#     @categories = Category.all
-#     @review_category = Review_category.new(review_category_params)
-
-#   end
-
-
-#   private
-
-#   def review_category_params
-#     params.require(:review_category).permit(:is_primary, category_id: [])
-#   end
-# end
-
 class ReviewCategoriesController < ApplicationController
   def create
     @review = Review.find(params[:review_id])

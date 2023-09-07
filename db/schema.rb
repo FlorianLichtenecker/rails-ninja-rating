@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_132249) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_152025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,10 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_132249) do
     t.date "start_date"
     t.date "end_date"
     t.bigint "user_id", null: false
-    t.bigint "review_platform_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["review_platform_id"], name: "index_reports_on_review_platform_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -101,7 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_132249) do
   add_foreign_key "action_items", "reports"
   add_foreign_key "report_reviews", "reports"
   add_foreign_key "report_reviews", "reviews"
-  add_foreign_key "reports", "review_platforms"
   add_foreign_key "reports", "users"
   add_foreign_key "review_categories", "categories"
   add_foreign_key "review_categories", "reviews"
