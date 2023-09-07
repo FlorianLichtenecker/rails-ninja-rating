@@ -83,3 +83,8 @@ puts "20 fake reviews have been generated."
   end
 end
 puts "80 fake closed reviews with categories have been generated."
+
+ReviewPlatform.create!(
+  name: "trustpilot",
+  logo_url: "fa-solid fa-t"
+)

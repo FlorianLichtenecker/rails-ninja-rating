@@ -92,3 +92,4 @@ gem "select2-rails"
 # Use jquery-ui for pretty UI
 
 gem 'nokogiri'
+gem 'open-uri'

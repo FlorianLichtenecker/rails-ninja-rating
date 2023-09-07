@@ -1,0 +1,32 @@
+<div class="slide-in-panel" id="slideInPanel" data-sidebar-target="panel">
+  <div class="panel-header">
+    <h2>Add New Platform</h2>
+  </div>
+  <button class="close-button" onclick="closeSlideInPanel()">X</button>
+  <div class="panel-content">
+      <%= simple_form_for UserReviewPlatform.new, url: @review_platform.present? ? review_platform_create_user_review_platform_index_path(@review_platform) : create_user_review_platform_path, method: :post do |f| %>
+      <!-- Review Platform -->
+        <div class="form-group">
+          <%= f.label :review_platform_id, "Select Review Platform" %>
+          <%= f.collection_select :review_platform_id, ReviewPlatform.exclude_user_review_platforms(current_user), :id, :name, { include_blank: "Select Review Platform" }, { class: 'form-control' } %>
+        </div>
+
+        <!-- Website URL -->
+        <div class="form-group">
+          <%= f.label :user_url, "Company Website URL" %>
+          <%= f.input :user_url, as: :url, input_html: { class: 'form-control', placeholder: 'https://www.example.com' }, label: false %>
+        </div>
+
+        <!-- API Key (Optional) -->
+        <div class="form-group">
+          <%= f.label :api_key, "API Key (Optional)" %>
+          <%= f.input :api_key, input_html: { class: 'form-control', placeholder: 'Enter API Key (if applicable)' }, label: false %>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <%= f.submit "Save", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+  </div>
+</div>
