@@ -60,3 +60,19 @@
 .overview-card span {
 font-size: 24px;
 }
+
+.add-platform-section {
+  background-color: #f0f0f0; /* A different background color */
+  margin-top: 10px; /* Additional spacing */
+  margin-bottom: 0px;
+}
+
+.add-platform-card {
+  font-weight: bold; /* Bold typography */
+  border: 1px solid #ccc; /* Adding a border */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+}
+
+.add-platform-card:hover {
+  background-color: #e0e0e0; /* A hover effect to indicate interactivity */
+}

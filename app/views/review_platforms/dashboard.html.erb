@@ -1,12 +1,27 @@
 <div class="container">
-  <div class="row my-4">
+  <div class="row justify-content-between mt-4 mb-3">
+    <div class="col-auto">
+      <!-- This section is for the Update Reviews button -->
+      <button type="button" class="btn btn-primary" data-action="click->update-reviews#updateReviews">Update Reviews</button>
+    </div>
+    <div class="col-auto">
+      <!-- This section is for the form inputs -->
+      <%= simple_form_for :filter, url: dashboard_path, method: :get do |f| %>
+        <div class="form-inputs d-flex" style="gap: 10px;">
+          <%= f.input :time_period, collection: [['Past 7 days', '7_days'], ['Past 30 days', '30_days'], ['Past 6 months', '6_months'], ['Past year', '1_year'], ['Total', 'total']], label: false, prompt: "Select Time Period", input_html: { class: 'form-control custom-select-width', placeholder: "Select Time Period" } %>
+          <%= f.input :date_range, as: :string, label: false, input_html: { data: { controller: "datepicker", flatpickr_mode: "range", flatpickr_min_date: "2020-01-01", flatpickr_max_date: "today" }, class: 'form-control custom-select-width', placeholder: "Select Date Range" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-4">
     <div class="col-3">
       <div class="kpi-box">
         <div class="icon-title">
           <i class="fa-solid fa-hashtag"></i> <!-- Font Awesome icon -->
-          <h2 class="kpi-header">Ratings</h2>
+          <h2 class="kpi-header">Total Ratings</h2>
         </div>
-        <h4 class="kpi-subtitle">(Total)</h4>
+        <h4 class="kpi-subtitle">(Timeframe)</h4>
         <p class="kpi-value"><%= @ratings_total %></p>
       </div>
     </div>
@@ -17,17 +32,17 @@
           <h2 class="kpi-header"># of ratings per day in time period</h2>
         </div>
         <h4 class="kpi-subtitle">(Total)</h4>
-        <div class="kpi-value overview-chart"><%= line_chart Review.group_by_day(:created_at).count %></div>
+        <div class="kpi-value overview-chart"><%= line_chart Review.group_by_day(:date).count %></div>
       </div>
     </div>
     <div class="col-3">
       <div class="kpi-box">
         <div class="icon-title">
           <i class="fa-solid fa-hashtag"></i><!-- Font Awesome icon -->
-          <h2 class="kpi-header">Ratings</h2>
+          <h2 class="kpi-header">Average Rating</h2>
         </div>
-        <h4 class="kpi-subtitle">(Past 14 days)</h4>
-        <p class="kpi-value"><%= @ratings_total %></p>
+        <h4 class="kpi-subtitle">(Timeframe)</h4>
+        <p class="kpi-value"><%= @ratings_average.round(2) %></p>
       </div>
     </div>
   </div>
@@ -43,7 +58,7 @@
           <i class="fa-regular fa-star"></i>
           </div>
           <h2>Most recent one star review</h2>
-          <span> <%= @latest_one_star_review.created_at.to_date %>
+          <span> <%= @latest_one_star_review.date %>
         </div>
         <div class="review-box-content">
           <p><%= @latest_one_star_review.content %></p>
@@ -61,7 +76,7 @@
             <i class="fa-solid fa-star"></i>
           </div>
           <h2>Most recent five star review</h2>
-          <span> <%= @latest_one_star_review.created_at.to_date %>
+          <span> <%= @latest_one_star_review.date %>
         </div>
         <div class="review-box-content">
           <p><%= @latest_five_star_review.content %></p>
@@ -74,24 +89,24 @@
       <div class="kpi-box">
         <div class="icon-title">
           <i class="fa-solid fa-down-long"></i> <!-- Font Awesome icon -->
-          <h2 class="kpi-header">Negative Categories</h2>
+          <h2 class="kpi-header">Detracting Categories</h2>
         </div>
-        <h4 class="kpi-subtitle">(#reviews)</h4>
+        <h4 class="kpi-subtitle">(# of categorized reviews)</h4>
         <div class="kpi-container">
           <div class="kpi-category-icons">
-            <i class="fa-solid fa-down-long"></i>
-            <i class="fa-solid fa-down-long"></i>
-            <i class="fa-solid fa-down-long"></i>
+            <i class="<%= @top_1_2_3_star_categories[0].logo_url %>"></i>
+            <i class="<%= @top_1_2_3_star_categories[1].logo_url %>"></i>
+            <i class="<%= @top_1_2_3_star_categories[2].logo_url %>"></i>
           </div>
           <div class="kpi-category-names">
-            <span class="kpi-category-name">Hygiene</span>
-            <span class="kpi-category-name">Service</span>
-            <span class="kpi-category-name">Ambience</span>
+            <span class="kpi-category-name"><%= @top_1_2_3_star_categories[0].name %></span>
+            <span class="kpi-category-name"><%= @top_1_2_3_star_categories[1].name %></span>
+            <span class="kpi-category-name"><%= @top_1_2_3_star_categories[2].name %></span>
           </div>
           <div class="kpi-category-values">
-            <span class="kpi-category-value">300</span>
-            <span class="kpi-category-value">200</span>
-            <span class="kpi-category-value">100</span>
+            <span class="kpi-category-value"><%= @top_1_2_3_star_categories[0].review_count %></span>
+            <span class="kpi-category-value"><%= @top_1_2_3_star_categories[1].review_count %></span>
+            <span class="kpi-category-value"><%= @top_1_2_3_star_categories[2].review_count %></span>
           </div>
         </div>
       </div>
@@ -110,24 +125,24 @@
       <div class="kpi-box">
         <div class="icon-title">
           <i class="fa-solid fa-up-long"></i> <!-- Font Awesome icon -->
-          <h2 class="kpi-header">Positive Categories</h2>
+          <h2 class="kpi-header">Promoting Categories</h2>
         </div>
-        <h4 class="kpi-subtitle">(#reviews)</h4>
+        <h4 class="kpi-subtitle">(# of categorized reviews)</h4>
         <div class="kpi-container">
           <div class="kpi-category-icons">
-            <i class="fa-solid fa-down-long"></i>
-            <i class="fa-solid fa-down-long"></i>
-            <i class="fa-solid fa-down-long"></i>
+            <i class="<%= @top_5_star_categories[0].logo_url %>"></i>
+            <i class="<%= @top_5_star_categories[1].logo_url %>"></i>
+            <i class="<%= @top_5_star_categories[2].logo_url %>"></i>
           </div>
           <div class="kpi-category-names">
-            <span class="kpi-category-name">Hygiene</span>
-            <span class="kpi-category-name">Service</span>
-            <span class="kpi-category-name">Ambience</span>
+            <span class="kpi-category-name"><%= @top_5_star_categories[0].name %></span>
+            <span class="kpi-category-name"><%= @top_5_star_categories[1].name %></span>
+            <span class="kpi-category-name"><%= @top_5_star_categories[2].name %></span>
           </div>
           <div class="kpi-category-values">
-            <span class="kpi-category-value">300</span>
-            <span class="kpi-category-value">200</span>
-            <span class="kpi-category-value">100</span>
+            <span class="kpi-category-value"><%= @top_5_star_categories[0].review_count %></span>
+            <span class="kpi-category-value"><%= @top_5_star_categories[1].review_count %></span>
+            <span class="kpi-category-value"><%= @top_5_star_categories[2].review_count %></span>
           </div>
         </div>
       </div>

@@ -1,0 +1,61 @@
+.slide-in-panel {
+  /* Initial styles for the hidden state of the panel */
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background: white;
+  transition: right 0.3s;
+  padding: 20px; /* Add padding to the entire panel */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.slide-in-panel.active {
+  /* Styles for the visible state of the panel */
+  right: 0;
+}
+
+.panel-header {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 20px; /* Add margin below the header */
+}
+
+.panel-header h2 {
+  font-size: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Add margin between label and input field */
+.form-group {
+  margin-bottom: 20px; /* Add margin below each form group */
+}
+
+.form-group:last-child {
+  margin-bottom: 0; /* Remove margin from the last form group */
+}
+
+/* Add padding to input fields */
+.form-control {
+  padding: 10px;
+}
+
+/* Add margin between label and input field */
+.label {
+  margin-bottom: 10px; /* Add margin below each label */
+}
+
+/* Style the input fields */
+.input {
+  margin-top: 5px; /* Add margin on top of each input field */
+}

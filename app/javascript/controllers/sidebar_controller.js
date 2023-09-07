@@ -1,12 +1,12 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
+import { application } from "./application";
 
 // Connects to data-controller="sidebar"
 export default class extends Controller {
-  static targets = ["card"];
+  static targets = ["card","panel", "toggleButton", "mainContentArea"];
 
   connect() {
     console.log("Sidebar controller connected!");
-    console.log(this.cardTargets);
   }
 
   highlight(event) {
@@ -17,5 +17,25 @@ export default class extends Controller {
 
     // Add 'selected' class to clicked card element
     event.currentTarget.classList.add("selected");
+  }
+
+  togglePanel() {
+    this.panelTarget.classList.toggle("active");
+    this.toggleButtonTarget.classList.toggle("selected");
+
+    const mainContentElement = document.querySelector('[data-controller="main-content"]');
+    if (mainContentElement) {
+      mainContentElement.setAttribute('data-main-content-dimmed-value', 'true');
+    }
+  }
+
+  closeSlideInPanel() {
+    this.panelTarget.classList.remove("active");
+    this.toggleButtonTarget.classList.remove("selected");
+
+    const mainContentElement = document.querySelector('[data-controller="main-content"]');
+    if (mainContentElement) {
+      mainContentElement.setAttribute('data-main-content-dimmed-value', 'false');
+    }
   }
 }

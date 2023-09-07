@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_152025) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_094936) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_152025) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "logo_url"
   end
 
   create_table "report_reviews", force: :cascade do |t|
@@ -72,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_152025) do
     t.datetime "updated_at", null: false
     t.string "reviewer_name"
     t.bigint "user_review_platform_id"
+    t.string "title"
     t.index ["user_review_platform_id"], name: "index_reviews_on_user_review_platform_id"
   end
 
@@ -80,6 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_152025) do
     t.bigint "review_platform_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_key"
+    t.string "user_url"
     t.index ["review_platform_id"], name: "index_user_review_platforms_on_review_platform_id"
     t.index ["user_id"], name: "index_user_review_platforms_on_user_id"
   end
