@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   resources :review_platforms, only: [] do
     resources :user_review_platforms, only: [:create], as: 'create_user_review_platform'
   end
+
   resources :reviews, only: [] do
     resources :review_categories, only: [:create]
+  end
+  resources :reports, only: [:new, :create, :edit, :update] do
+    resources :report_reviews, only: [:new, :create]
+    resources :action_items, only: [:new, :create, :index]
   end
 end

@@ -91,5 +91,16 @@ gem "select2-rails"
 
 # Use jquery-ui for pretty UI
 
+gem 'wicked_pdf'
+
+group :production do
+  gem 'wkhtmltopdf-heroku', '2.12.6.1.pre.jammy'
+end
+
+group :development do
+  gem 'wkhtmltopdf-binary'
+end
+
 gem 'nokogiri'
 gem 'open-uri'
+
