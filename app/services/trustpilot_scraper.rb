@@ -3,7 +3,7 @@ require "open-uri"
 
 class TrustpilotScraper
   def self.call(user_review_platform)
-    new(user_review_platform).scrape_page
+    new(user_review_platform).scrape_reviews
   end
 
   def initialize(user_review_platform)
@@ -11,8 +11,35 @@ class TrustpilotScraper
     @user_review_platform_id = user_review_platform.id
   end
 
-  def scrape_page
-    html_file = URI.open(@user_url).read
+  def scrape_reviews
+    base_url = "https://www.trustpilot.com/review/#{@user_url}"
+    sort_type = "recency"
+
+    first_page_url = "#{base_url}?sort=#{sort_type}"
+    scrape_page(first_page_url) # Scraping the first page
+
+    total_pages = find_total_pages(first_page_url) # You will need to implement this method to find the total pages
+
+    (2..total_pages).each do |page_number|
+      url = "#{base_url}?page=#{page_number}&sort=#{sort_type}"
+      scrape_page(url)
+    end
+  end
+
+  def find_total_pages(url)
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML.parse(html_file)
+
+    last_page_number = 1
+    last_page_number = [last_page_number, html_doc.css('[name="pagination-button-last"]').text.to_i].max
+    last_page_number = [last_page_number, html_doc.css('[name="pagination-button-3"]').text.to_i].max
+    last_page_number = [last_page_number, html_doc.css('[name="pagination-button-2"]').text.to_i].max
+
+    last_page_number
+  end
+
+  def scrape_page(url)
+    html_file = URI.open(url).read
     html_doc = Nokogiri::HTML.parse(html_file)
 
     halt_scraping = false
