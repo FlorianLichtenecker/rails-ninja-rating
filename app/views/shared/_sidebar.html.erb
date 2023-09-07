@@ -28,6 +28,11 @@
       <span>Add New Platform</span>
     </div>
   </div>
+   <div class="add-platform-section">
+    <div class="review-platform-card add-platform-card" data-action="click->sidebar#togglePanel" data-sidebar-target="toggleButton">
+      <%= link_to "Create Report", reports_path, data: { turbo_method: :post } %>
+    </div>
+  </div>
   <hr class="separator">
   <div>
     <div class="review-platform-card">

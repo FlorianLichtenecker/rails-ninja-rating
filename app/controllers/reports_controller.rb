@@ -7,6 +7,11 @@ class ReportsController < ApplicationController
     # @report = Report.find(@report_id)
   end
 
+  def create
+    @report = Report.create!(user: current_user)
+    redirect_to edit_report_path(@report)
+  end
+
   def edit
     @report = Report.find(params[:id])
     @action_item = ActionItem.new
