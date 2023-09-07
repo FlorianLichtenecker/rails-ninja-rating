@@ -4,3 +4,4 @@ class AddApiKeyAndUrlToUserReviewPlatforms < ActiveRecord::Migration[7.0]
     add_column :user_review_platforms, :user_url, :string
   end
 end
+  
