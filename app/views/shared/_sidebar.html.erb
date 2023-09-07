@@ -22,10 +22,17 @@
       <% end %>
     <% end %>
   <% end %>
-  <hr class="separator">
-    <div>
-      <div class="review-platform-card">
-        <%= link_to 'Manage Reviews', reviews_manage_path, class: "sidebar-link", style: "font-style: italic;" %>
-      </div>
+  <div class="add-platform-section">
+    <div class="review-platform-card add-platform-card" data-action="click->sidebar#togglePanel" data-sidebar-target="toggleButton">
+      <i class="fas fa-plus-circle"></i>
+      <span>Add New Platform</span>
     </div>
+  </div>
+  <hr class="separator">
+  <div>
+    <div class="review-platform-card">
+      <%= link_to 'Manage Reviews', reviews_manage_path, class: "sidebar-link", style: "font-style: italic;" %>
+    </div>
+  </div>
+  <%= render "shared/slide-in" %>
 </div>

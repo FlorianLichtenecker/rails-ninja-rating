@@ -1,15 +1,20 @@
 <div class="container">
-  <div class="row justify-content-end">
-    <div class="col-4"> <!-- This makes the form take up about 1/3 of the page width -->
+  <div class="row justify-content-between mt-4 mb-3">
+    <div class="col-auto">
+      <!-- This section is for the Update Reviews button -->
+      <button type="button" class="btn btn-primary" data-action="click->update-reviews#updateReviews">Update Reviews</button>
+    </div>
+    <div class="col-auto">
+      <!-- This section is for the form inputs -->
       <%= simple_form_for :filter, url: dashboard_path, method: :get do |f| %>
-        <div class="form-inputs d-flex justify-content-between" style="gap: 10px;">
-          <%= f.input :time_period, collection: [['Past 7 days', '7_days'], ['Past 30 days', '30_days'], ['Past 6 months', '6_months'], ['Past year', '1_year'], ['Total', 'total']], label: "Select Time Period", prompt: "Select Time Period", input_html: { class: 'form-control custom-select-width' } %>
-          <%= f.input :date_range, as: :string, label: "Date Range", input_html: { data: { controller: "datepicker", flatpickr_mode: "range", flatpickr_min_date: "2020-01-01", flatpickr_max_date: "today" }, class: 'form-control custom-select-width' } %>
+        <div class="form-inputs d-flex" style="gap: 10px;">
+          <%= f.input :time_period, collection: [['Past 7 days', '7_days'], ['Past 30 days', '30_days'], ['Past 6 months', '6_months'], ['Past year', '1_year'], ['Total', 'total']], label: false, prompt: "Select Time Period", input_html: { class: 'form-control custom-select-width', placeholder: "Select Time Period" } %>
+          <%= f.input :date_range, as: :string, label: false, input_html: { data: { controller: "datepicker", flatpickr_mode: "range", flatpickr_min_date: "2020-01-01", flatpickr_max_date: "today" }, class: 'form-control custom-select-width', placeholder: "Select Date Range" } %>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="row my-4">
+  <div class="row mb-4">
     <div class="col-3">
       <div class="kpi-box">
         <div class="icon-title">
