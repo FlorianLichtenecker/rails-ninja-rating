@@ -2,7 +2,7 @@
   <div class="panel-header">
     <h2>Add New Platform</h2>
   </div>
-  <button class="close-button" onclick="closeSlideInPanel()">X</button>
+  <button class="close-button" data-action="click->sidebar#closeSlideInPanel">X</button>
   <div class="panel-content">
       <%= simple_form_for UserReviewPlatform.new, url: @review_platform.present? ? review_platform_create_user_review_platform_index_path(@review_platform) : create_user_review_platform_path, method: :post do |f| %>
       <!-- Review Platform -->
