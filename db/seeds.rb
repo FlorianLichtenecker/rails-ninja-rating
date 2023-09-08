@@ -6,7 +6,6 @@ ReviewCategory.destroy_all
 User.destroy_all
 Category.destroy_all
 
-
 User.create!(
   email: "mateo.florian@gmail.com",
   password: "123123"

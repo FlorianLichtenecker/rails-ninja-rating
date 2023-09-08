@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus";
-import { application } from "./application";
 
 // Connects to data-controller="sidebar"
 export default class extends Controller {
